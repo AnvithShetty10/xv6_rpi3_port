@@ -39,11 +39,22 @@ Please send errors and suggestions to Frans Kaashoek and Robert Morris
 operating system for MIT's 6.828, so we are more interested in
 simplifications and clarifications than new features.
 
-BUILDING AND RUNNING XV6
+BUILDING AND RUNNING XV6 ON RASPBERRY PI 3
+#Run the following commands: 
+$ sudo apt-get update
+$ sudo apt-get install git zlib1g-dev libsdl1.2-dev
 
-To build xv6 on an x86 ELF machine (like Linux or FreeBSD), run
-"make". On non-x86 or non-ELF machines (like OS X, even on x86), you
-will need to install a cross-compiler gcc suite capable of producing
-x86 ELF binaries. See http://pdos.csail.mit.edu/6.828/2016/tools.html.
-Then run "make TOOLPREFIX=i386-jos-elf-". Now install the QEMU PC
-simulator and run "make qemu".
+# Install a cross-compiler gcc
+$ apt-get install -y gcc-arm-none-eabi 
+
+# Install qemu emulator which is compatible with ARM architecture
+$ apt-get install -y qemu-system-arm
+
+# Clone this repository
+$ git clone https://github.com/AnvithShetty10/xv6_rpi3_port.git xv6_rpi3
+
+$ cd xv6_rpi3
+$ make
+$ make qemu
+
+# The xv6 interface will appear on the QEMU platform
